@@ -12,9 +12,9 @@ namespace test_ci
     
     public class Manager
     {
-        public int SomeMethod()
+        public int SomeMethod(int input)
         {
-        
+            return input;
         }
     }
 }

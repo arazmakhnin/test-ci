@@ -2,11 +2,26 @@ image: microsoft/dotnet:latest
 
 stages:
     - build
+    - package
 
 before_script:
     - "dotnet restore"
 
 build:
+    only: 
+        - master
     stage: build
     script:
         - "dotnet build"
+        
+package:
+    only:
+        - tags
+    stage: package
+    script:
+        - dotnet publish test-ci -o artifacts/test-ci/win -c Release -r win-x64 /p:Version=$CI_COMMIT_TAG
+    artifacts:
+        name: "testci-win.x64-$CI_COMMIT_TAG"
+        paths:
+          - artifacts/test-ci/win
+        expire_in: 2 days
