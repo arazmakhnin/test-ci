@@ -19,7 +19,7 @@ package:
         - tags
     stage: package
     script:
-        - dotnet publish test-ci -o artifacts/test-ci/win -c Release -r win-x64 /p:Version=$CI_COMMIT_TAG
+        - dotnet publish test-ci -o ../artifacts/test-ci/win -c Release -r win-x64 /p:Version=$CI_COMMIT_TAG
     artifacts:
         name: "testci-win.x64-$CI_COMMIT_TAG"
         paths:
