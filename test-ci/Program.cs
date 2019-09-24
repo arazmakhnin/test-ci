@@ -9,4 +9,12 @@ namespace test_ci
             Console.WriteLine("Hello World!");
         }
     }
+    
+    public class Manager
+    {
+        public int SomeMethod()
+        {
+        
+        }
+    }
 }
